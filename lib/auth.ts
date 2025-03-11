@@ -79,3 +79,15 @@ export async function isParticipant() {
   return profile?.role === "participant"
 }
 
+// Check if user has specific role
+export async function requireRole(allowedRoles: string[]) {
+  const profile = await getCurrentProfile()
+  if (!profile) {
+    throw new Error("Not authenticated")
+  }
+  if (!allowedRoles.includes(profile.role)) {
+    throw new Error("Unauthorized")
+  }
+  return profile
+}
+
