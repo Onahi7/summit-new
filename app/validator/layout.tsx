@@ -1,13 +1,9 @@
-import { SupabaseAuthProvider } from "@/components/supabase-auth-provider"
+import { ValidatorAuthProvider } from "../../components/validator-auth-provider"
 
 export default function ValidatorLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <SupabaseAuthProvider>
-      {children}
-    </SupabaseAuthProvider>
-  )
+  return <ValidatorAuthProvider>{children}</ValidatorAuthProvider>
 }

@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "NAPPS Conference 2025",
   description: "National Association of Proprietors of Private Schools Conference 2025",
-    generator: 'v0.dev'
+  generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -32,7 +32,3 @@ export default function RootLayout({
     </html>
   )
 }
-
-
-
-import './globals.css'
