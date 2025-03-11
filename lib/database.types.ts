@@ -71,7 +71,94 @@ export interface Database {
           qr_code?: string | null
         }
       }
-      // Other tables remain the same
+      hotels: {
+        Row: {
+          id: string
+          created_at: string
+          name: string
+          description: string
+          address: string
+          price_per_night: number
+          image_url: string
+          available_rooms: number
+          amenities: string[]
+          rating: number
+          distance_to_venue: number
+          featured: boolean
+          price_category: "economy" | "standard" | "premium"
+        }
+        Insert: {
+          id?: string
+          created_at?: string
+          name: string
+          description: string
+          address: string
+          price_per_night: number
+          image_url: string
+          available_rooms: number
+          amenities: string[]
+          rating: number
+          distance_to_venue: number
+          featured?: boolean
+          price_category: "economy" | "standard" | "premium"
+        }
+        Update: {
+          id?: string
+          created_at?: string
+          name?: string
+          description?: string
+          address?: string
+          price_per_night?: number
+          image_url?: string
+          available_rooms?: number
+          amenities?: string[]
+          rating?: number
+          distance_to_venue?: number
+          featured?: boolean
+          price_category?: "economy" | "standard" | "premium"
+        }
+      }
+      bookings: {
+        Row: {
+          id: string
+          created_at: string
+          user_id: string
+          hotel_id: string
+          check_in_date: string
+          check_out_date: string
+          status: "pending" | "confirmed" | "cancelled"
+          payment_reference: string
+          payment_status: "pending" | "paid" | "failed"
+          total_amount: number
+          special_requests: string | null
+        }
+        Insert: {
+          id?: string
+          created_at?: string
+          user_id: string
+          hotel_id: string
+          check_in_date: string
+          check_out_date: string
+          status?: "pending" | "confirmed" | "cancelled"
+          payment_reference: string
+          payment_status?: "pending" | "paid" | "failed"
+          total_amount: number
+          special_requests?: string | null
+        }
+        Update: {
+          id?: string
+          created_at?: string
+          user_id?: string
+          hotel_id?: string
+          check_in_date?: string
+          check_out_date?: string
+          status?: "pending" | "confirmed" | "cancelled"
+          payment_reference?: string
+          payment_status?: "pending" | "paid" | "failed"
+          total_amount?: number
+          special_requests?: string | null
+        }
+      }
     }
   }
 }

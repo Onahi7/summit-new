@@ -102,5 +102,22 @@ export async function updateProfile(formData: FormData) {
   return { success: true }
 }
 
+// Get users by role
+export async function getUsersByRole(role: string) {
+  const supabase = createClientServer()
+  const { data, error } = await supabase
+    .from("profiles")
+    .select("*")
+    .eq("role", role)
+    .order("created_at", { ascending: false })
+
+  if (error) {
+    console.error("Error fetching users:", error)
+    return { success: false, error: error.message }
+  }
+
+  return { success: true, data }
+}
+
 // Other functions remain the same
 
